@@ -1,5 +1,5 @@
 {
-	"name": "tool-pomodoro",
+	"name": "@rebuildup/tool-pomodoro",
 	"private": true,
 	"version": "0.1.0",
 	"type": "module",
