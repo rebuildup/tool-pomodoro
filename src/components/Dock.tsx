@@ -36,8 +36,8 @@ export const Dock = ({
 
 	return (
 		<div
-			className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-60 px-4 h-16 rounded-2xl border   flex items-end gap-2 transition-[background-color,border-color] duration-300 no-timer-click
-  ${theme === "dark" ? "bg-[#111]/80 " : " "}
+			className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-60 px-4 h-16 rounded-2xl border backdrop-blur-xl shadow-2xl flex items-end gap-2 transition-all duration-300 no-timer-click
+  ${theme === "dark" ? "bg-[#111]/80 border-white/10" : "bg-white/80 border-black/5"}
   `}
 			onMouseMove={handleMouseMove}
 			onMouseLeave={handleMouseLeave}
@@ -124,16 +124,16 @@ export const DockButton = ({
 			onMouseLeave={() => setIsHovered(false)}
 			onFocus={() => setIsHovered(true)}
 			onBlur={() => setIsHovered(false)}
-			className={`w-full h-full flex items-center justify-center relative group ${theme === "dark" ? " " : " "} ${colorClass || ""}`}
+			className={`w-full h-full rounded-full flex items-center justify-center shadow-md transition-colors relative group ${theme === "dark" ? "bg-white/10 hover:bg-white/20" : "bg-black/5 hover:bg-black/10"} ${colorClass || ""}`}
 			style={accentStyle}
 		>
 			<Icon
-				className={`pointer-events-none ${theme === "dark" ? "" : ""}`}
+				className={`pointer-events-none ${theme === "dark" ? "text-white" : "text-gray-900"}`}
 				style={accentColor && isHovered ? { color: accentColor } : undefined}
 			/>
 			<span
-				className={`absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider   transition-opacity whitespace-nowrap pointer-events-none
- ${theme === "dark" ? " " : "  "}
+				className={`absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none
+ ${theme === "dark" ? "bg-[#333] text-white" : "bg-white text-black shadow-sm"}
  `}
 			>
 				{label}

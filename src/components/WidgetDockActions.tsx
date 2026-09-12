@@ -38,36 +38,42 @@ export function WidgetDockActions({
 		icon: IconComponent;
 		label: string;
 		type: string;
+		colorClass: string;
 	}> = [
 		{
 			visible: dockVisibility.note,
 			icon: StickyNote,
 			label: "Note",
 			type: "note",
+			colorClass: "hover:text-blue-500",
 		},
 		{
 			visible: dockVisibility.image,
 			icon: ImageIcon,
 			label: "Image",
 			type: "image",
+			colorClass: "hover:text-sky-500",
 		},
 		{
 			visible: dockVisibility.music,
 			icon: Music,
 			label: "YouTube",
 			type: "music",
+			colorClass: "hover:text-red-500",
 		},
 		{
 			visible: dockVisibility.timer,
 			icon: Timer,
 			label: "Timer",
 			type: "timer",
+			colorClass: "hover:text-green-500",
 		},
 		{
 			visible: dockVisibility.stats,
 			icon: BarChart2,
 			label: "Stats",
 			type: "stats",
+			colorClass: "hover:text-amber-500",
 		},
 	];
 
@@ -82,7 +88,7 @@ export function WidgetDockActions({
 						icon={entry.icon}
 						label={entry.label}
 						theme={theme}
-						colorClass=""
+						colorClass={entry.colorClass}
 					/>
 				))}
 		</>
