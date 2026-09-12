@@ -27,7 +27,7 @@ export function WidgetNoteContent({
 				<span className="sr-only">ノート本文</span>
 				<textarea
 					ref={textareaRef}
-					className={`w-full h-full resize-none font-mono text-sm select-text ${theme === "dark" ? "" : ""} [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]: [&::-webkit-scrollbar-thumb]: [&::-webkit-scrollbar-thumb]: [&::-webkit-scrollbar-track]:`}
+					className={`w-full h-full bg-transparent resize-none outline-none font-mono text-sm select-text ${theme === "dark" ? "text-gray-200" : "text-gray-900"} [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-gray-500/20 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-gray-500/30 [&::-webkit-scrollbar-track]:bg-transparent`}
 					aria-label="ノート本文"
 					value={content || ""}
 					onChange={(e) => updateWidget(id, { content: e.target.value })}
