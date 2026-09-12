@@ -37,14 +37,14 @@ export function WidgetImageContent({
 		<div className="flex flex-col gap-4 w-full h-full items-center justify-center p-4">
 			{!content ? (
 				<div
-					className={`w-full flex flex-col gap-3 p-6 rounded-xl   ${
-						theme === "dark" ? "bg-[#222]/90 border " : " border "
+					className={`w-full flex flex-col gap-3 p-6 rounded-xl backdrop-blur-md shadow-lg ${
+						theme === "dark" ? "bg-[#222]/90 border border-white/10" : "bg-white/90 border border-black/5"
 					}`}
 				>
 					<input
 						type="text"
 						placeholder="Paste image URL..."
-						className={`w-full p-2 text-sm ${theme === "dark" ? " " : " "}`}
+						className={`w-full bg-transparent border-b p-2 text-sm outline-none transition-colors ${theme === "dark" ? "border-white/20 text-white placeholder-white/50 focus:border-white/80" : "border-black/20 text-black placeholder-black/50 focus:border-black/80"}`}
 						onKeyDown={(e) => {
 							if (e.key === "Enter")
 								updateWidget(id, { content: e.currentTarget.value });
@@ -52,14 +52,14 @@ export function WidgetImageContent({
 					/>
 					<div
 						className={`text-center text-[10px] font-bold uppercase tracking-widest ${
-							theme === "dark" ? "" : ""
+							theme === "dark" ? "text-white/40" : "text-black/40"
 						}`}
 					>
 						OR
 					</div>
 					<label
 						className={`cursor-pointer flex items-center justify-center gap-2 p-3 rounded-lg border  transition-all ${
-							theme === "dark" ? "  " : "  "
+							theme === "dark" ? "border-white/30 hover:bg-white/10 text-gray-200" : "border-black/30 hover:bg-black/5 text-gray-800"
 						}`}
 					>
 						<Upload size={16} />
@@ -100,7 +100,7 @@ export function WidgetImageContent({
 					/>
 					<button
 						onClick={() => updateWidget(id, { content: "" })}
-						className="absolute top-2 right-2 p-2"
+						className="absolute top-2 right-2 p-2 bg-black/50 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70"
 						aria-label="編集"
 					>
 						<Edit3 size={14} />
