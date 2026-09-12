@@ -9,8 +9,8 @@ export const CurrentStepLabel = ({
 }) => {
 	return (
 		<div
-			className={`fixed top-8 left-1/2 -translate-x-1/2 z-30 text-sm tracking-[0.4em] uppercase font-bold  pointer-events-none
- ${theme === "dark" ? "" : ""}
+			className={`fixed top-8 left-1/2 -translate-x-1/2 z-30 text-sm tracking-[0.4em] uppercase font-bold opacity-30 pointer-events-none
+ ${theme === "dark" ? "text-white" : "text-black"}
  `}
 		>
 			{label}

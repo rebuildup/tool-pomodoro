@@ -66,7 +66,7 @@ export const CircularTimer = ({
 				</svg>
 				<button
 					onClick={onClick}
-					className="relative group pointer-events-auto "
+					className="relative group pointer-events-auto focus:outline-none"
 					style={{ zIndex: 50 }}
 				>
 					<TimeDisplay ms={timeLeft} theme={theme} isActive={isActive} />

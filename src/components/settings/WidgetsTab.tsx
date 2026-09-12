@@ -19,11 +19,11 @@ export const WidgetsTab = ({
 		<div className="space-y-6">
 			<div>
 				<h3
-					className={`text-lg font-semibold mb-2 ${theme === "dark" ? "" : ""}`}
+					className={`text-lg font-semibold mb-2 ${theme === "dark" ? "text-white" : "text-black"}`}
 				>
 					ウィジェットサイズ
 				</h3>
-				<p className={`text-sm mb-4 ${theme === "dark" ? "" : ""}`}>
+				<p className={`text-sm mb-4 ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>
 					新しく追加するウィジェットの基本サイズを調整します.
 				</p>
 				<div className="space-y-4">
@@ -35,7 +35,7 @@ export const WidgetsTab = ({
 						onChange={(v) => onUpdateSettings({ stickyWidgetSize: v })}
 						accentColor={highlightColor}
 						label={
-							<span className="block text-xs font-medium ">
+							<span className="block text-xs font-medium text-gray-400">
 								メモ / 画像 / タイマー / 統計
 							</span>
 						}
@@ -49,7 +49,7 @@ export const WidgetsTab = ({
 						onChange={(v) => onUpdateSettings({ youtubeWidgetWidth: v })}
 						accentColor={highlightColor}
 						label={
-							<span className="block text-xs font-medium ">
+							<span className="block text-xs font-medium text-gray-400">
 								YouTubeウィジェットの幅
 							</span>
 						}

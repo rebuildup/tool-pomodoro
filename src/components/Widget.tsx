@@ -124,7 +124,7 @@ export function Widget({
 			[widget, theme, isImageLoaded],
 		);
 
-	const textClass = isSticky ? "" : theme === "dark" ? "" : "";
+	const textClass = isSticky ? "text-gray-900" : theme === "dark" ? "text-gray-200" : "text-gray-800";
 
 	const isStickyVisible =
 		isSticky && widget.type !== "image" && widget.type !== "youtube";
@@ -166,8 +166,8 @@ export function Widget({
 					? "rounded-lg"
 					: isImageLoaded
 						? ""
-						: "rounded-xl border "
-			} ${isOverDeleteZone ? " scale-95" : ""}`}
+						: "rounded-xl border backdrop-blur-md"
+			} ${isOverDeleteZone ? "opacity-50 scale-95" : ""}`}
 		>
 			{isSticky && (
 				<div
@@ -190,10 +190,10 @@ export function Widget({
 			{!isSticky && (
 				<div
 					onPointerDown={handlePointerDown}
-					className={`h-8 flex items-center justify-between px-2 cursor-grab  ${theme === "dark" ? "" : ""}`}
+					className={`h-8 flex items-center justify-between px-2 cursor-grab border-b ${theme === "dark" ? "border-white/5" : "border-black/5"}`}
 					style={{ touchAction: "none" }}
 				>
-					<div className="flex items-center gap-2 ">
+					<div className="flex items-center gap-2 opacity-50">
 						{widget.type === "image" && <ImageIcon size={14} />}
 						{widget.type === "music" && <Music size={14} />}
 						<span className="text-xs font-bold uppercase tracking-wider">
@@ -203,7 +203,7 @@ export function Widget({
 					<div className="flex items-center gap-1 no-drag">
 						<button
 							onClick={() => removeWidget(widget.id)}
-							className="p-1"
+							className="p-1 rounded hover:bg-red-500/20 text-red-500 hover:text-red-600 transition-colors"
 							aria-label="ウィジェットを削除"
 						>
 							<X size={12} />

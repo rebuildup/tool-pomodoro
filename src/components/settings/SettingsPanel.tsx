@@ -45,11 +45,11 @@ export const SettingsPanel = ({
 	return (
 		<div className="fixed inset-0 z-2147483647 flex items-center justify-center pointer-events-auto">
 			{/* Overlay */}
-			<div className="absolute inset-0  " onClick={onClose} />
+			<div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
 			{/* Panel */}
 			<div
-				className={`relative z-10 rounded-2xl border   max-w-6xl w-full mx-4 h-[calc(100vh-2rem)] md:h-[600px] overflow-hidden flex flex-col md:flex-row ${
-					theme === "dark" ? "bg-[#1a1a1a]/95 " : " "
+				className={`relative z-10 rounded-2xl border backdrop-blur-xl shadow-2xl max-w-6xl w-full mx-4 h-[calc(100vh-2rem)] md:h-[600px] overflow-hidden flex flex-col md:flex-row ${
+					theme === "dark" ? "bg-[#1a1a1a]/95 border-white/10" : "bg-white/95 border-black/5"
 				}`}
 			>
 				<SettingsSidebar
@@ -60,7 +60,7 @@ export const SettingsPanel = ({
 				/>
 
 				{/* Content */}
-				<div className="flex-1 overflow-y-auto p-4 md:p-6 min-h-0 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]: [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]: [&::-webkit-scrollbar-track]:">
+				<div className="flex-1 overflow-y-auto p-4 md:p-6 min-h-0 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-gray-500/20 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-gray-500/30 [&::-webkit-scrollbar-track]:bg-transparent">
 					{settingsTab === "workflow" && (
 						<WorkflowTab
 							theme={theme}

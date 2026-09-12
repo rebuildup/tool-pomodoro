@@ -63,20 +63,20 @@ export function getWidgetBgClass({
 	const isTimer = widget.type === "timer";
 	const isYouTube = widget.type === "youtube";
 
-	if (isNote) return "shadow-[0_4px_8px_rgba(0,0,0,0.2)] border ";
+	if (isNote) return "shadow-[0_4px_8px_rgba(0,0,0,0.2)] border border-black/5";
 	if (isImageSticky) {
 		if (isImageLoaded) return "";
-		return "shadow-[0_6px_12px_rgba(0,0,0,0.2)] border  ";
+		return "shadow-[0_6px_12px_rgba(0,0,0,0.2)] border border-transparent bg-transparent";
 	}
-	if (isTimer) return "  shadow-[0_8px_32px_rgba(0,0,0,0.1)]";
+	if (isTimer) return "bg-white/95 border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.1)]";
 	if (isYouTube) {
 		return theme === "dark"
-			? "bg-[#1a1a1a]/95  shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
-			: "  shadow-[0_8px_32px_rgba(0,0,0,0.1)]";
+			? "bg-[#1a1a1a]/95 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+			: "bg-white/95 border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.1)]";
 	}
 	return theme === "dark"
-		? "bg-[#1a1a1a]/90  shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
-		: "  shadow-[0_8px_32px_rgba(0,0,0,0.1)]";
+		? "bg-[#1a1a1a]/90 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+		: "bg-white/90 border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.1)]";
 }
 
 /**
@@ -94,7 +94,7 @@ export function getContentWrapperLayout({ widget }: WidgetVisualLayout): {
 
 	const stickyContentWrapperClass = isImageSticky
 		? "flex-1 w-full h-full no-drag select-text flex items-center justify-center overflow-hidden"
-		: "flex-1 w-full h-full no-drag select-text [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]: [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]: [&::-webkit-scrollbar-track]:";
+		: "flex-1 w-full h-full no-drag select-text [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-gray-500/20 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-gray-500/30 [&::-webkit-scrollbar-track]:bg-transparent";
 
 	const nonStickyContentWrapperClass = `p-4 overflow-auto no-drag select-text ${
 		widget.type === "music" ? "p-0" : ""
