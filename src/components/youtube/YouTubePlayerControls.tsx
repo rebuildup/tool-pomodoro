@@ -51,14 +51,14 @@ export function YouTubePlayerControls({
 	if (isMinimized) return null;
 
 	return (
-		<div className="p-3 space-y-3 ">
+		<div className="p-3 space-y-3 bg-transparent">
 			{/* Playback Controls */}
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-2">
 					{isPlaylist && (
 						<button
 							onClick={onPrevious}
-							className={`p-2 ${theme === "dark" ? " " : " "}`}
+							className={`p-2 rounded-full ${theme === "dark" ? "hover:bg-gray-800 text-gray-300" : "hover:bg-gray-200 text-gray-700"}`}
 							aria-label="前の動画"
 						>
 							<SkipBack size={16} fill="currentColor" />
@@ -66,7 +66,7 @@ export function YouTubePlayerControls({
 					)}
 					<button
 						onClick={onTogglePlay}
-						className={`p-2 ${theme === "dark" ? " " : " "}`}
+						className={`p-2 rounded-full ${theme === "dark" ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-gray-800"}`}
 						aria-label={playbackState === "playing" ? "一時停止" : "再生"}
 					>
 						{playbackState === "playing" ? (
@@ -78,7 +78,7 @@ export function YouTubePlayerControls({
 					{isPlaylist && (
 						<button
 							onClick={onNext}
-							className={`p-2 ${theme === "dark" ? " " : " "}`}
+							className={`p-2 rounded-full ${theme === "dark" ? "hover:bg-gray-800 text-gray-300" : "hover:bg-gray-200 text-gray-700"}`}
 							aria-label="次の動画"
 						>
 							<SkipForward size={16} fill="currentColor" />
@@ -89,7 +89,7 @@ export function YouTubePlayerControls({
 				<div className="flex items-center gap-2 flex-1 mx-4">
 					<button
 						onClick={onToggleMute}
-						className="dark:"
+						className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
 						aria-label={isMuted || volume === 0 ? "ミュート解除" : "ミュート"}
 					>
 						{isMuted || volume === 0 ? (
@@ -117,18 +117,18 @@ export function YouTubePlayerControls({
 
 			{/* Settings / URL Input */}
 			{showSettings && (
-				<div className={`pt-3  space-y-3 ${theme === "dark" ? "" : ""}`}>
+				<div className={`pt-3 border-t space-y-3 ${theme === "dark" ? "border-white/10" : "border-black/5"}`}>
 					<div className="flex gap-2">
 						<input
 							type="text"
 							value={inputUrl}
 							onChange={(e) => onInputUrlChange(e.target.value)}
 							placeholder="YouTube URL..."
-							className={`flex-1 px-2 py-1.5 text-xs ${theme === "dark" ? " " : " "}`}
+							className={`flex-1 px-2 py-1.5 text-xs rounded border bg-transparent outline-none ${theme === "dark" ? "border-white/20 focus:border-white/50" : "border-black/20 focus:border-black/50"}`}
 						/>
 						<button
 							onClick={onSaveUrl}
-							className={`p-1.5 ${theme === "dark" ? " " : " "}`}
+							className={`p-1.5 rounded border ${theme === "dark" ? "border-white/20 hover:bg-white/10" : "border-black/20 hover:bg-black/5"}`}
 							aria-label="URLを保存"
 						>
 							<Save size={14} />

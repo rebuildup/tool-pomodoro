@@ -19,15 +19,15 @@ export const MarkdownViewer = ({
 			return `${base}#${n}`;
 		});
 	}, [lines]);
-	if (!content) return <div className="  italic">Empty note...</div>;
+	if (!content) return <div className="text-gray-500 opacity-80 italic">Empty note...</div>;
 
 	return (
-		<div className={`space-y-1 text-sm `}>
+		<div className="space-y-1 text-sm text-gray-900">
 			{lines.map((line, i) => {
 				const key = lineKeys[i];
 				if (line.startsWith("# "))
 					return (
-						<h1 key={key} className="text-xl font-bold   pb-1 mb-2">
+						<h1 key={key} className="text-xl font-bold border-b border-gray-500/20 pb-1 mb-2">
 							{line.slice(2)}
 						</h1>
 					);
@@ -53,10 +53,10 @@ export const MarkdownViewer = ({
 				if (line.startsWith("[x] "))
 					return (
 						<div key={key} className="flex items-center gap-2">
-							<div className="w-3 h-3 border  rounded flex items-center justify-center text-[8px] ">
+							<div className="w-3 h-3 border bg-blue-500 rounded flex items-center justify-center text-[8px] text-white">
 								✓
 							</div>
-							<span className="line-through ">{line.slice(4)}</span>
+							<span className="line-through opacity-50">{line.slice(4)}</span>
 						</div>
 					);
 

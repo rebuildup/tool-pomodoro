@@ -19,26 +19,26 @@ export function YouTubePlayerHeader({
 }: YouTubePlayerHeaderProps) {
 	return (
 		<div
-			className={`flex items-center justify-between p-2  ${
-				theme === "dark" ? "" : ""
+			className={`flex items-center justify-between p-2 border-b ${
+				theme === "dark" ? "border-white/10" : "border-black/5"
 			}`}
 		>
 			<div className="flex items-center gap-2">
-				<span className="text-xs font-bold uppercase tracking-wider ">
+				<span className="text-xs font-bold uppercase tracking-wider opacity-70">
 					YouTube Player
 				</span>
 			</div>
 			<div className="flex items-center gap-1">
 				<button
 					onClick={onToggleMinimize}
-					className="p-1.5"
+					className="p-1.5 rounded hover:bg-gray-500/20 transition-colors"
 					aria-label={isMinimized ? "最大化" : "最小化"}
 				>
 					{isMinimized ? <Maximize2 size={14} /> : <Minimize2 size={14} />}
 				</button>
 				<button
 					onClick={onToggleSettings}
-					className={`p-1.5 ${showSettings ? "" : ""}`}
+					className={`p-1.5 rounded hover:bg-gray-500/20 transition-colors ${showSettings ? "bg-gray-500/20" : ""}`}
 					aria-label="設定"
 				>
 					<Settings size={14} />
