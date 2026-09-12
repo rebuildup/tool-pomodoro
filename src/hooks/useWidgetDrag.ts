@@ -114,17 +114,17 @@ export function useWidgetDrag({
 				if (indicator && icon) {
 					if (isOver) {
 						indicator.className =
-							"w-64 h-24 rounded-2xl   flex items-center justify-center transition-all duration-200  ";
+							"w-64 h-24 rounded-2xl border-4 border-dashed flex items-center justify-center transition-all duration-200 bg-transparent border-gray-400/50";
 						icon.setAttribute(
 							"class",
-							"lucide lucide-trash2  transition-all duration-200 scale-150",
+							"lucide lucide-trash2 text-red-500 transition-all duration-200 scale-150",
 						);
 					} else {
 						indicator.className =
-							"w-64 h-24 rounded-2xl   flex items-center justify-center transition-all duration-200  ";
+							"w-64 h-24 rounded-2xl border-4 border-dashed flex items-center justify-center transition-all duration-200 bg-transparent border-gray-400/30";
 						icon.setAttribute(
 							"class",
-							"lucide lucide-trash2   transition-all duration-200 scale-100",
+							"lucide lucide-trash2 text-gray-600 opacity-30 transition-all duration-200 scale-100",
 						);
 					}
 				}
