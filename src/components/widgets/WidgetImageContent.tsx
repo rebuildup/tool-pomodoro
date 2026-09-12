@@ -58,7 +58,7 @@ export function WidgetImageContent({
 						OR
 					</div>
 					<label
-						className={`cursor-pointer flex items-center justify-center gap-2 p-3 rounded-lg border  transition-all ${
+						className={`cursor-pointer flex items-center justify-center gap-2 p-3 rounded-lg border border-dashed transition-all ${
 							theme === "dark" ? "border-white/30 hover:bg-white/10 text-gray-200" : "border-black/30 hover:bg-black/5 text-gray-800"
 						}`}
 					>
