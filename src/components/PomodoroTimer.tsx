@@ -129,7 +129,7 @@ export default function PomodoroTimer() {
 	return (
 		<div
 			className={`relative w-full h-screen overflow-hidden transition-colors duration-500 select-none ${
-				theme === "dark" ? " " : " "
+				theme === "dark" ? "bg-[#050505] text-gray-100" : "bg-[#f5f5f7] text-gray-900"
 			}`}
 			style={{
 				backgroundImage:
@@ -212,7 +212,7 @@ export default function PomodoroTimer() {
 					dockVisibility.image ||
 					dockVisibility.music) &&
 					(dockVisibility.theme || true) && (
-						<div className="w-px h-8   mx-1 self-center" />
+						<div className="w-px h-8 bg-current opacity-10 mx-1 self-center" />
 					)}
 
 				{dockVisibility.theme && (
