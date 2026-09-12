@@ -75,7 +75,7 @@ export function getWidgetBgClass({
 			: "bg-white/95 border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.1)]";
 	}
 	return theme === "dark"
-		? "bg-[#1a11a]/90 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+		? "bg-[#1a1a1a]/90 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
 		: "bg-white/90 border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.1)]";
 }
 
