@@ -28,7 +28,7 @@ export function WidgetMusicContent({
 				<input
 					type="text"
 					placeholder="YouTube Video ID"
-					className={`text-[10px] text-center ${textClass}`}
+					className={`text-[10px] text-center bg-transparent opacity-30 hover:opacity-100 outline-none transition-opacity ${textClass}`}
 					onKeyDown={(e) => {
 						if (e.key === "Enter")
 							updateWidget(id, { content: e.currentTarget.value });
