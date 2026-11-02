@@ -1,7 +1,6 @@
 "use client";
 
 import { Edit3, Upload } from "lucide-react";
-import Image from "next/image";
 import type React from "react";
 import { useCallback } from "react";
 
@@ -85,11 +84,17 @@ export function WidgetImageContent({
 				</div>
 			) : (
 				<div className="relative group w-full h-full flex items-center justify-center">
-					<Image
+					{/*
+					 * A plain <img> instead of `next/image`: the source is a
+					 * data URL or a user supplied URL that was rendered
+					 * unoptimized anyway, so `next/image` only wrapped an
+					 * <img> here, and the Next runtime does not exist in a
+					 * standalone build.
+					 */}
+					<img
 						src={content}
 						width={300}
 						height={300}
-						unoptimized
 						alt="Widget"
 						className="w-full h-full object-contain pointer-events-none select-none rounded-lg"
 						onLoad={handleImageLoad}
