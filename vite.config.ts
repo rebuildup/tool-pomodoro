@@ -1,3 +1,4 @@
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
@@ -7,5 +8,5 @@ export default defineConfig({
 	// `dist/index.html` has to stay relative. The default (`/`) would
 	// point at the host root and 404.
 	base: "./",
-	plugins: [react()],
+	plugins: [react(), tailwindcss()],
 });

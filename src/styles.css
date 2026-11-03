@@ -1,0 +1,17 @@
+/*
+ * Self-contained styles for the standalone build.
+ *
+ * Every component in this repository is written with Tailwind utility
+ * classes. When the tool was rendered inside the my-web-2025 host those
+ * utilities came from the host stylesheet; a standalone static build has
+ * no host and therefore shipped no stylesheet at all (Issue #868: the
+ * frame rendered unstyled). Tailwind is bundled here so the artifact is
+ * self-contained and matches the utility classes the source declares.
+ *
+ * `@source` is explicit because the stylesheet lives in `src/` while the
+ * entrypoint imports it from `src/main.tsx`; automatic detection would
+ * otherwise only cover the stylesheet's own directory.
+ */
+@import "tailwindcss";
+
+@source "./";
