@@ -57,7 +57,10 @@ export default function PomodoroTimer() {
 		removeWidget,
 	} = widgetStore;
 
-	const [theme, setTheme] = useState(settings.theme || "dark");
+	// The theme lives in the persisted settings (localStorage), so a reload
+	// keeps the visitor's choice. `settings.theme` is `dark` by default
+	// (DEFAULT_SETTINGS) and the dock toggle writes it back on change.
+	const theme = settings.theme || "dark";
 	const [showStopDialog, setShowStopDialog] = useState(false);
 	const [showSettingsPanel, setShowSettingsPanel] = useState(false);
 	const [settingsTab, setSettingsTab] = useState<
@@ -112,8 +115,9 @@ export default function PomodoroTimer() {
 		setShowStopDialog(false);
 	};
 
-	const toggleTheme = () =>
-		setTheme((prev) => (prev === "light" ? "dark" : "light"));
+	const toggleTheme = () => {
+		updateSettings({ theme: theme === "light" ? "dark" : "light" });
+	};
 
 	const updateDockVisibility = (
 		key: keyof typeof dockVisibility,
@@ -129,7 +133,7 @@ export default function PomodoroTimer() {
 	return (
 		<div
 			className={`relative w-full h-screen overflow-hidden transition-colors duration-500 select-none ${
-				theme === "dark" ? " " : " "
+				theme === "dark" ? "bg-[#050505] text-gray-100" : "bg-[#f5f5f7] text-gray-900"
 			}`}
 			style={{
 				backgroundImage:
@@ -212,7 +216,7 @@ export default function PomodoroTimer() {
 					dockVisibility.image ||
 					dockVisibility.music) &&
 					(dockVisibility.theme || true) && (
-						<div className="w-px h-8   mx-1 self-center" />
+						<div className="w-px h-8 bg-current opacity-10 mx-1 self-center" />
 					)}
 
 				{dockVisibility.theme && (

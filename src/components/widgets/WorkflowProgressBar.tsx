@@ -56,11 +56,11 @@ export const WorkflowProgressBar = ({
 	return (
 		<aside
 			className={`fixed left-8 top-1/2 transform -translate-y-1/2 z-70 flex flex-col items-start gap-4 transition-opacity duration-500 no-timer-click
- ${isActive ? " " : ""}
+ ${isActive ? "opacity-20 hover:opacity-100" : "opacity-100"}
  `}
 		>
 			<div
-				className="relative h-[60vh] w-1.5 rounded-full bg-opacity-20  transition-[width] duration-300 hover:w-2"
+				className="relative h-[60vh] w-1.5 rounded-full bg-opacity-20 backdrop-blur-sm transition-all duration-300 hover:w-2"
 				style={{
 					backgroundColor:
 						theme === "dark" ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)",
@@ -93,7 +93,7 @@ export const WorkflowProgressBar = ({
 						return (
 							<div
 								key={step.id}
-								className="relative w-full   "
+								className="relative w-full border-b border-transparent last:border-0"
 								style={{ height: `${heightPercent}%` }}
 							>
 								<div
@@ -112,13 +112,13 @@ export const WorkflowProgressBar = ({
 								<div className="absolute inset-0 flex justify-center pointer-events-none">
 									<div className="relative w-full h-full">
 										<div
-											className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${isHovered ? "" : ""} ${
-												theme === "dark" ? "" : ""
+											className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${isHovered ? "opacity-30" : "opacity-0"} ${
+												theme === "dark" ? "bg-gray-400/30" : "bg-gray-600/20"
 											}`}
 										/>
 
 										<div
-											className="absolute bottom-0 left-0 w-full transition-[height] duration-100 ease-linear"
+											className="absolute bottom-0 left-0 w-full transition-all duration-100 ease-linear"
 											style={{
 												height: `${stepFillPercent}%`,
 												background: `linear-gradient(180deg, ${barColor}33, ${barColor})`,
@@ -130,10 +130,10 @@ export const WorkflowProgressBar = ({
 								</div>
 
 								<div
-									className={`absolute top-1/2 -translate-y-1/2 w-48 p-2 rounded-lg  border transition-all duration-300 pointer-events-none  z-100 ${
-										isHovered ? " translate-x-0" : " -translate-x-2.5"
+									className={`absolute top-1/2 -translate-y-1/2 w-48 p-2 rounded-lg backdrop-blur-md border transition-all duration-300 pointer-events-none shadow-xl z-100 ${
+										isHovered ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2.5"
 									}
- ${theme === "dark" ? "bg-[#1a1a1a]/90  " : "  "}
+ ${theme === "dark" ? "bg-[#1a1a1a]/90 border-white/10 text-gray-100" : "bg-white/90 border-black/5 text-gray-800"}
  `}
 									style={{
 										left: `calc(50% + ${hoverPaddingRight}px)`,
@@ -141,11 +141,11 @@ export const WorkflowProgressBar = ({
 								>
 									<div className="flex items-center justify-between">
 										<span
-											className={`text-xs font-bold uppercase tracking-wider ${step.type === "focus" ? "" : ""}`}
+											className={`text-xs font-bold uppercase tracking-wider ${step.type === "focus" ? "text-blue-400" : "text-sky-400"}`}
 										>
 											{step.label}
 										</span>
-										<span className="text-[10px] font-mono ">
+										<span className="text-[10px] font-mono opacity-50">
 											{step.duration} min
 										</span>
 									</div>

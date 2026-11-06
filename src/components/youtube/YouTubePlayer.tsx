@@ -31,7 +31,7 @@ export default function YouTubePlayer(props: YouTubePlayerProps) {
 	return (
 		<div
 			className={`flex flex-col w-full h-full overflow-hidden ${
-				theme === "dark" ? "" : ""
+				theme === "dark" ? "text-white" : "text-gray-900"
 			}`}
 		>
 			<YouTubePlayerHeader

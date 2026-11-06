@@ -194,11 +194,11 @@ export default function MiniTimer({ id, theme }: MiniTimerProps) {
 	};
 
 	return (
-		<div className="flex flex-col w-full h-full p-4 ">
+		<div className="flex flex-col w-full h-full p-4 text-gray-900">
 			{/* Header */}
 			<div className="flex items-center justify-between mb-2 no-drag relative">
 				<div className="flex-1" /> {/* Spacer */}
-				<span className="text-xs font-bold uppercase tracking-wider ">
+				<span className="text-xs font-bold uppercase tracking-wider opacity-70">
 					{mode === "timer" ? "TIMER" : "STOPWATCH"}
 				</span>
 				<div className="flex-1 flex justify-end">
@@ -207,7 +207,7 @@ export default function MiniTimer({ id, theme }: MiniTimerProps) {
 							setIsActive(false);
 							setMode(mode === "timer" ? "stopwatch" : "timer");
 						}}
-						className="p-1.5"
+						className="p-1.5 rounded hover:bg-black/5 transition-colors text-gray-500 hover:text-gray-900"
 						title={mode === "timer" ? "Switch to Stopwatch" : "Switch to Timer"}
 					>
 						{mode === "timer" ? <Watch size={14} /> : <Timer size={14} />}
@@ -225,7 +225,7 @@ export default function MiniTimer({ id, theme }: MiniTimerProps) {
 				<div className="flex items-center gap-4">
 					<button
 						onClick={toggleTimer}
-						className="p-3"
+						className="p-3 rounded-full transition-all bg-black text-white hover:bg-gray-800 shadow-lg active:scale-95"
 						aria-label={isActive ? "一時停止" : "開始"}
 					>
 						{isActive ? (
@@ -234,7 +234,7 @@ export default function MiniTimer({ id, theme }: MiniTimerProps) {
 							<Play size={20} fill="currentColor" />
 						)}
 					</button>
-					<button onClick={resetTimer} className="p-3" aria-label="リセット">
+					<button onClick={resetTimer} className="p-3 rounded-full transition-all bg-black/5 hover:bg-black/10 text-black active:scale-95" aria-label="リセット">
 						<RotateCcw size={20} />
 					</button>
 				</div>
@@ -250,10 +250,10 @@ export default function MiniTimer({ id, theme }: MiniTimerProps) {
 									max="999"
 									value={Math.floor(savedDuration / 60000)}
 									onChange={(e) => handleDurationChange("min", e.target.value)}
-									className="w-14 px-1 py-1 text-center text-sm"
+									className="w-14 px-1 py-1 text-center rounded border bg-white/50 outline-none border-black/20 focus:border-black/50 focus:bg-white transition-colors text-sm"
 									aria-label="分"
 								/>
-								<span className="text-xs  font-medium">m</span>
+								<span className="text-xs opacity-70 font-medium">m</span>
 							</div>
 							<div className="flex items-center gap-1">
 								<input
@@ -262,10 +262,10 @@ export default function MiniTimer({ id, theme }: MiniTimerProps) {
 									max="59"
 									value={Math.floor((savedDuration % 60000) / 1000)}
 									onChange={(e) => handleDurationChange("sec", e.target.value)}
-									className="w-14 px-1 py-1 text-center text-sm"
+									className="w-14 px-1 py-1 text-center rounded border bg-white/50 outline-none border-black/20 focus:border-black/50 focus:bg-white transition-colors text-sm"
 									aria-label="秒"
 								/>
-								<span className="text-xs  font-medium">s</span>
+								<span className="text-xs opacity-70 font-medium">s</span>
 							</div>
 						</div>
 					)}

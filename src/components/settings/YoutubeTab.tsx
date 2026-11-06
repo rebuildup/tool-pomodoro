@@ -18,11 +18,11 @@ export const YoutubeTab = ({
 		<div className="space-y-6">
 			<div>
 				<h3
-					className={`text-lg font-semibold mb-2 ${theme === "dark" ? "" : ""}`}
+					className={`text-lg font-semibold mb-2 ${theme === "dark" ? "text-white" : "text-black"}`}
 				>
 					YouTubeプレイヤー設定
 				</h3>
-				<p className={`text-sm mb-4 ${theme === "dark" ? "" : ""}`}>
+				<p className={`text-sm mb-4 ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>
 					全てのYouTubeウィジェットで共有する再生動作とデフォルト値です.
 				</p>
 				<div className="space-y-3">
@@ -72,7 +72,7 @@ export const YoutubeTab = ({
 							onChange={(v) => onUpdateSettings({ youtubeDefaultVolume: v })}
 							accentColor={highlightColor}
 							label={
-								<span className="block text-xs font-medium ">
+								<span className="block text-xs font-medium text-gray-400">
 									デフォルト音量
 								</span>
 							}
